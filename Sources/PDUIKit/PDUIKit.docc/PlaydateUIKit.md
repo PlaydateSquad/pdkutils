@@ -14,6 +14,7 @@ similar feel to Apple's UIKit library for iOS, iPadOS, and tvOS.
 
 ### UIKit fundamentals
 
+- ``UIApplication``
 - ``UIView``
 - ``UIViewController``
 

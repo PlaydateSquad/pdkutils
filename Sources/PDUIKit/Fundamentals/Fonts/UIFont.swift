@@ -32,7 +32,8 @@ public struct UIFont {
     /// The font's weight.
     public var fontWeight: Weight
 
-    var pdFont: Graphics.Font?
+    /// The underlying Playdate font structure.
+    public var pdFont: Graphics.Font?
 
     /// Construct a font from a given name, size, and weight.
     /// - Parameter name: The typeface to use.

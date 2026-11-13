@@ -1,6 +1,14 @@
 import PlaydateKit
 import PDUIKit
 
+final class Game: UIApplication {
+    var rootViewController: UIViewController
+
+    init() {
+        self.rootViewController = ViewController()
+    }
+}
+
 final class ViewController: UIViewController {
     lazy var button: UIButton = {
         let button = UIButton(

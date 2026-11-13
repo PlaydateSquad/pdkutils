@@ -35,6 +35,24 @@ public struct UIRect: Equatable {
         infersSizeFromContentIntrinsicSize = false
     }
 
+    /// Returns a copy of this rectangle, applying the specified transformation.
+    ///
+    /// This is typically used to create frames whose widths and heights are unknown or calculated elsewhere. For
+    /// example, this can be used to create a rectangle based on the Playdate's size:
+    /// ```swift
+    /// let newFrame = UIRect.display.applying { rect in
+    ///     rect.height = 16 // Make the frame 16px tall.
+    ///     rect.origin = Point(x: 0, y: 32) // Make the frame 32px from the top.
+    /// }
+    /// ```
+    /// 
+    /// - Parameter transform: The transformation to apply to the rectangle.
+    public func with(_ transform: @escaping (inout UIRect) -> Void) -> UIRect {
+        var newSelf = self
+        transform(&newSelf)
+        return newSelf
+    }
+
     /// Create a rectangle that infers its size from an intrinsic content size.
     /// - Parameter origin: The starting point of the rectangle.
     public static func inferredContentSize(at origin: Point) -> Self {

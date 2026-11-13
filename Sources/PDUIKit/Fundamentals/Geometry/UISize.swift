@@ -22,4 +22,10 @@ public extension UISize {
     static var display: UISize {
         UISize(width: Float(Display.width), height: Float(Display.height))
     }
+
+    /// Whether the the point fits within the specified size.
+    func contains(_ point: Point) -> Bool {
+        let (xRange, yRange) = (0..<Int(width), 0..<Int(height))
+        return xRange.contains(Int(point.x)) && yRange.contains(Int(point.y))
+    }
 }
